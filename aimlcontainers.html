@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why ZEN?</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@300;400;700&display=swap');
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .title-container {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #000000, #1a1a2e);
+        }
+
+        .glowing-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 6vw;
+            text-align: center;
+            color: #00ccff;
+            text-shadow: 0 0 10px #00ccff, 0 0 20px #00ccff, 0 0 30px #00ccff;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #00ccff, 0 0 20px #00ccff, 0 0 30px #00ccff;
+            }
+            to {
+                text-shadow: 0 0 20px #00ccff, 0 0 30px #00ccff, 0 0 40px #00ccff, 0 0 50px #00ccff;
+            }
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .service {
+            background: rgba(0,102,204,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0,204,255,0.2);
+            padding: 30px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .service:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,204,255,0.2);
+        }
+
+        .service h2 {
+            color: #00ccff;
+            margin-top: 0;
+        }
+
+        .iaas-section {
+            background: linear-gradient(135deg, rgba(0,102,204,0.1), rgba(0,204,255,0.1));
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 60px;
+            box-shadow: 0 10px 30px rgba(0,204,255,0.1);
+        }
+
+        .iaas-section h2 {
+            color: #00ccff;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .iaas-section p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            color: #00ccff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="title-container">
+        <h1 class="glowing-title">Why ZEN?</h1>
+    </div>
+
+    <div class="content">
+        <div class="services">
+            <div class="service">
+                <h2>AI Development</h2>
+                <p>Elevate your business with our bespoke AI Development services. We create personalized AI applications to propel your enterprise into the future.</p>
+            </div>
+            <div class="service">
+                <h2>Mixed Reality Marketing</h2>
+                <p>Leverage cutting-edge Mixed Reality Marketing for state-of-the-art devices like Meta Quest 3 and Apple Vision Pro.</p>
+            </div>
+            <div class="service">
+                <h2>AI Consulting</h2>
+                <p>Our experts guide you through AI opportunities, from innovative strategies to advanced tech integration, focusing on wearables, NFC, and blockchain.</p>
+            </div>
+            <!-- Add more services here -->
+        </div>
+
+        <div class="iaas-section">
+            <h2>Revolutionizing Infrastructure with AI/ML Containers</h2>
+            <p>At ZEN AI, we're not just about providing cutting-edge AI solutions for individuals; we're also dedicated to revolutionizing the infrastructure landscape for businesses, hospitals, and similar organizations. Our innovative <span class="highlight">Infrastructure as a Service (IaaS)</span> offering is designed to meet the evolving needs of modern enterprises by integrating neural networks into locally housed hardware.</p>
+            
+            <p>Our IaaS solution stands out for its <span class="highlight">robustness and innovation</span>. By leveraging neural networks, we empower hosts with expansive computational capabilities, enabling them to process vast amounts of data with unparalleled efficiency. Moreover, our approach enhances computational independence, ensuring that organizations have the autonomy to tailor their AI infrastructure according to their specific requirements.</p>
+            
+            <p><span class="highlight">Security is a top priority</span> for us at ZEN AI. With our locally housed hardware and neural network integration, we provide an added layer of security, safeguarding sensitive data and ensuring compliance with industry regulations. By keeping data processing within the organization's premises, we mitigate the risks associated with external dependencies and potential security breaches.</p>
+            
+            <p>Our IaaS offering is not just about providing infrastructure; it's about <span class="highlight">empowering businesses to unlock the full potential of AI</span> while maintaining control over their data and operations. Whether it's accelerating research in healthcare, optimizing operations in manufacturing, or enhancing customer experiences in retail, our solution is tailored to drive innovation and efficiency across diverse sectors.</p>
+            
+            <p>At ZEN AI, we're committed to pushing the boundaries of what's possible with AI infrastructure. With our IaaS solution, businesses can embark on a transformative journey towards greater computational prowess, enhanced security, and unparalleled performance.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const title = document.querySelector('.glowing-title');
+            
+            title.addEventListener('mousemove', (e) => {
+                const { offsetX, offsetY, target } = e;
+                const { offsetWidth, offsetHeight } = target;
+
+                const moveX = (offsetX / offsetWidth - 0.5) * 20;
+                const moveY = (offsetY / offsetHeight - 0.5) * 20;
+
+                title.style.textShadow = `
+                    ${moveX}px ${moveY}px 10px rgba(0,204,255,0.7),
+                    ${moveX * 2}px ${moveY * 2}px 20px rgba(0,204,255,0.5),
+                    ${moveX * 3}px ${moveY * 3}px 30px rgba(0,204,255,0.3)
+                `;
+            });
+
+            title.addEventListener('mouseleave', () => {
+                title.style.textShadow = '';
+            });
+        });
+    </script>
+</body>
+</html>
