@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why ZEN?</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .title-container {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #000000, #1a1a2e);
+        }
+
+        .glowing-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 6vw;
+            text-align: center;
+            color: #00ccff;
+            text-shadow: 0 0 10px #00ccff, 0 0 20px #00ccff, 0 0 30px #00ccff;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #00ccff, 0 0 20px #00ccff, 0 0 30px #00ccff;
+            }
+            to {
+                text-shadow: 0 0 20px #00ccff, 0 0 30px #00ccff, 0 0 40px #00ccff, 0 0 50px #00ccff;
+            }
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service {
+            background: rgba(0,102,204,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0,204,255,0.2);
+            padding: 30px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .service:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,204,255,0.2);
+        }
+
+        .service h2 {
+            color: #00ccff;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="title-container">
+        <h1 class="glowing-title">Why ZEN?</h1>
+    </div>
+
+    <div class="content">
+        <div class="services">
+            <div class="service">
+                <h2>AI Development</h2>
+                <p>Elevate your business with our bespoke AI Development services. We create personalized AI applications to propel your enterprise into the future.</p>
+            </div>
+            <div class="service">
+                <h2>Mixed Reality Marketing</h2>
+                <p>Leverage cutting-edge Mixed Reality Marketing for state-of-the-art devices like Meta Quest 3 and Apple Vision Pro.</p>
+            </div>
+            <div class="service">
+                <h2>AI Consulting</h2>
+                <p>Our experts guide you through AI opportunities, from innovative strategies to advanced tech integration, focusing on wearables, NFC, and blockchain.</p>
+            </div>
+            <!-- Add more services here -->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const title = document.querySelector('.glowing-title');
+            
+            title.addEventListener('mousemove', (e) => {
+                const { offsetX, offsetY, target } = e;
+                const { offsetWidth, offsetHeight } = target;
+
+                const moveX = (offsetX / offsetWidth - 0.5) * 20;
+                const moveY = (offsetY / offsetHeight - 0.5) * 20;
+
+                title.style.textShadow = `
+                    ${moveX}px ${moveY}px 10px rgba(0,204,255,0.7),
+                    ${moveX * 2}px ${moveY * 2}px 20px rgba(0,204,255,0.5),
+                    ${moveX * 3}px ${moveY * 3}px 30px rgba(0,204,255,0.3)
+                `;
+            });
+
+            title.addEventListener('mouseleave', () => {
+                title.style.textShadow = '';
+            });
+        });
+    </script>
+</body>
+</html>
